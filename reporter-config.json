@@ -1,0 +1,6 @@
+﻿{
+  "reporterEnabled": "mocha-junit-reporter, allure-mocha",
+  "allureMochaReporterOptions": {
+    "resultsDir": "allure-results"
+  }
+}

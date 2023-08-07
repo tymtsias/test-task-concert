@@ -1,0 +1,29 @@
+{
+  "name": "test-task-concert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "debug:mode": "npx cypress open",
+    "headless:mode": "npx cypress run --browser chrome",
+    "clear:allure:results": "rimraf allure-results",
+    "clear:allure:report": "rimraf allure-report",
+    "allure:report": "npm run clear:allure:report && allure generate allure-results --clean -o allure-report",
+    "trigger:allure": "npm run allure:report",
+    "regression:e2e": "npx cypress run --env allure=true --browser chrome --spec ./cypress/e2e/*.cy.js",
+    "cy:regression": "npm run clear:allure:results && npm run regression:e2e && npm run trigger:allure"
+  },
+  "author": "tymtsias",
+  "license": "ISC",
+  "dependencies": {
+    "allure-commandline": "^2.23.1",
+    "cypress": "12.13.0",
+    "jquery": "^3.7.0",
+    "jsdom": "^22.1.0",
+    "mocha-allure-reporter": "^1.4.0"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "prettier": "2.8.8"
+  }
+}
